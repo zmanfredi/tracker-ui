@@ -21,8 +21,8 @@ if (!process.env.UI_SERVER_API_ENDPOINT) {
 }
 
 if (apiProxyTarget) {
-  app.use('/graphql', proxy({ target: apiProxyTarget }));
-  app.use('/auth', proxy({ target: apiProxyTarget }));
+  app.use('/graphql', proxy({ target: apiProxyTarget, changeOrigin: true }));
+  app.use('/auth', proxy({ target: apiProxyTarget, changeOrigin: true }));
 }
 
 if (!process.env.UI_AUTH_ENDPOINT) {
